@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 
 import org.junit.Assert;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import boot.domain.Department;
 import boot.repository.dao2.DepartmentRepository;
@@ -16,7 +15,6 @@ public class DepartmentService {
 	private DepartmentRepository departmentRepository;
 
 
-	@Transactional(value="secondTransactionManager", rollbackFor=Exception.class)
 	public Department getDepartment(String name){
 		return departmentRepository.getDepartment(name);
 	}

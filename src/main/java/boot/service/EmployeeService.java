@@ -2,7 +2,6 @@ package boot.service;
 
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import boot.domain.Employee;
 import boot.repository.dao1.EmployeeRepository;

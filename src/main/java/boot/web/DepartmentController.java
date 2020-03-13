@@ -1,9 +1,9 @@
 package boot.web;
 
-import java.io.IOException;
-
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +14,8 @@ import boot.service.DepartmentService;
 
 @Controller
 public class DepartmentController {
+
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Resource
 	private DepartmentService departmentService;
@@ -34,7 +36,7 @@ public class DepartmentController {
 		try {
 			departmentService.insertDepartment(department);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("保存部门失败：", e);
 		}
 	}
 

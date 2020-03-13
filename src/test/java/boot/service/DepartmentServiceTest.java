@@ -4,7 +4,6 @@ import boot.domain.Department;
 import boot.support.AbstractSpringbootTest;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ public class DepartmentServiceTest extends AbstractSpringbootTest {
     }
 
     @Test
-    @Transactional(value="secondTransactionManager", rollbackFor=Exception.class)
+    //@Transactional(value="secondTransactionManager", rollbackFor=Exception.class)
     public void testInsert() throws Exception{
         Assert.assertNull(departmentService.getDepartment("jinjunzhu"));
 

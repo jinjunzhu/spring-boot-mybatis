@@ -19,7 +19,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="User">
+<mapper namespace="boot.repository.dao1.UserRepository">
     <select id="getUser" parameterType="String" resultType="User">
         SELECT * FROM zh_user r WHERE r.username=#{username}
     </select>

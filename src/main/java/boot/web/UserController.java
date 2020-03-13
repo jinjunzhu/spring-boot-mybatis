@@ -11,6 +11,7 @@ import boot.domain.User;
 import boot.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
 
