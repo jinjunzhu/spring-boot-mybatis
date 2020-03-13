@@ -27,16 +27,15 @@ public class DepartmentController {
 	
 	@RequestMapping("/department/save/{name}/{level}")
 	@ResponseBody
-	public String insertDepartment(@PathVariable String name,@PathVariable Integer level){
+	public void insertDepartment(@PathVariable String name,@PathVariable Integer level){
 		Department department = new Department();
 		department.setName(name);
 		department.setLevel(level);
 		try {
 			departmentService.insertDepartment(department);
-		} catch (IOException e) {
-			return e.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return "success!";
 	}
 
 }

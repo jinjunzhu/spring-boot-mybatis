@@ -2,36 +2,35 @@ package boot.service;
 
 import javax.annotation.Resource;
 
+import boot.support.AbstractSpringbootTest;
+import org.junit.Assert;
 import org.junit.Test;
-
 import boot.domain.Employee;
-import boot.service.EmployeeService;
-import boot.support.SpringTxTestCase;
 
-public class EmployeeServiceTest extends SpringTxTestCase{
+public class EmployeeServiceTest extends AbstractSpringbootTest {
 
 	@Resource
 	private EmployeeService employeeService;
 	
 	@Test
 	public void testGetEmployee(){
-		Employee employee = employeeService.getEmployee("zhujinjun");
-		assertEquals("9部", employee.getDepartment());
+		Employee employee = employeeService.getEmployee("jinjunzhu");
+		Assert.assertEquals("department", employee.getDepartment());
 	}
 
 	@Test
 	public void testInsertEmployee(){
 		Employee employee = employeeService.getEmployee("lisi");
-		assertNull(employee);
+		Assert.assertNull(employee);
 		
 		Employee employee1 = new Employee();
 		employee1.setName("lisi");
-		employee1.setDepartment("4部");
+		employee1.setDepartment("4");
 		employee1.setNumber(2002950l);
 		employeeService.insertEmployee(employee1);
 		
 		employee = employeeService.getEmployee("lisi");
-		assertNotNull(employee);
+		Assert.assertNotNull(employee);
 		
 	}
 }

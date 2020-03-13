@@ -1,34 +1,29 @@
 package boot.service;
 
-import java.io.IOException;
-
 import javax.annotation.Resource;
 
+import org.junit.Assert;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
-
 import boot.domain.Department;
-import boot.repository.DepartmentRepository;
-
+import boot.repository.dao2.DepartmentRepository;
 
 @Service
-//@EnableTransactionManagement
 public class DepartmentService {
 
 	@Resource
 	private DepartmentRepository departmentRepository;
-	
-	@Transactional(readOnly=true)
+
+
+	@Transactional(value="secondTransactionManager", rollbackFor=Exception.class)
 	public Department getDepartment(String name){
 		return departmentRepository.getDepartment(name);
 	}
-	
-	@Transactional(value="secondTransactionManager",propagation=Propagation.REQUIRED,isolation=Isolation.READ_COMMITTED,rollbackFor=Exception.class)
-	public void insertDepartment(Department department) throws IOException{
+
+	@Transactional(value="secondTransactionManager", rollbackFor=Exception.class)
+	public void insertDepartment(Department department) throws Exception {
 		departmentRepository.insertDepartment(department);
-		//throw new IOException("test rollback");
 	}
 
 }

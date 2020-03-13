@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import boot.domain.User;
-import boot.repository.UserRepository;
+import boot.repository.dao1.UserRepository;
 
 
 @Service

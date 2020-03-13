@@ -32,7 +32,7 @@ public class EmployeeController {
 		employee.setDepartment(department);
 		employee.setNumber(number);
 		try{
-			employeeService.insertEmployeeInTransaction(employee);
+			employeeService.insertEmployee(employee);
 			return "success!";
 		}catch(Exception e){
 			return e.toString();

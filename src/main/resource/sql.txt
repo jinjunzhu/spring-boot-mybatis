@@ -1,4 +1,4 @@
- database1: zhujinjun
+ database1: jinjunzhu
 
 CREATE TABLE `zh_employee` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
