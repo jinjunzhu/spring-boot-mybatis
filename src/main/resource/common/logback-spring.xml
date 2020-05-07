@@ -1,0 +1,39 @@
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>service-adapter</contextName>
+    <conversionRule conversionWord="coloredLevel" converterClass="play.api.libs.logback.ColoredLevel"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%thread] [%level] %logger - %message%n%xException</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNCSTDOUT" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="STDOUT"/>
+    </appender>
+
+    <appender name="rollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/app/jar/logs/${HOSTNAME}/applog/catalina.out</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/app/jar/logs/${HOSTNAME}/logbak/catalina-%d{yyyy-MM-dd}.out</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder><!-- 必须指定，否则不会往文件输出内容 -->
+            <pattern>%date [%thread] [%level] %logger{80} %line - %message%n%xException</pattern>
+        </encoder>
+        <append>false</append>
+        <prudent>false</prudent>
+    </appender>
+
+
+    <!-- 屏蔽无用报错 -->
+    <logger name="org.springframework.web.servlet">
+        <level value="ERROR"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="ASYNCSTDOUT"/>
+        <appender-ref ref="rollingAppender"/>
+    </root>
+
+</configuration>

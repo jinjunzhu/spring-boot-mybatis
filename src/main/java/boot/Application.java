@@ -2,7 +2,6 @@ package boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @author jinjunzhu
@@ -12,8 +11,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class Application {
 
     public static void main(String[] args){
-        ConfigurableApplicationContext application = SpringApplication.run(Application.class);
-        System.out.println(application.getBean("firstTransactionManager"));
-        System.out.println(application.getBean("secondTransactionManager"));
+        SpringApplication.run(Application.class);
     }
 }

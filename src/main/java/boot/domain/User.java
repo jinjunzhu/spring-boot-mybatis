@@ -1,16 +1,18 @@
 package boot.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
+@ApiModel("用户实体类")
 public class User implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@ApiModelProperty("用户名")
 	private String username;
+	@ApiModelProperty("密码")
 	private String password;
 	public Long getId() {
 		return id;

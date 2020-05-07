@@ -19,7 +19,7 @@ public class UserService {
 	}
 	
 	public void insert(User user){
-		userRepository.insert(user);
+		userRepository.saveUser(user);
 	}
 
 }

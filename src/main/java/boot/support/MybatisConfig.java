@@ -13,6 +13,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
+import java.math.BigDecimal;
 
 /**
  * @author jinjunzhu
@@ -53,5 +54,9 @@ public class MybatisConfig {
 	//@Resource
 	//@Qualifier("firstSqlSessionTemplate")
 	//protected SqlSession firstSqlSession;
+
+    public static void main(String[] args){
+	    System.out.println(new BigDecimal(1).add(new BigDecimal(2)).pow(3));
+    }
 }
 
