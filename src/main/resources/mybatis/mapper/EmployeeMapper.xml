@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boot.repository.dao1.EmployeeRepository">
+    <select id="getEmployeeByName" parameterType="String" resultType="Employee">
+        SELECT * FROM zh_employee e WHERE e.name=#{name}
+    </select>
+    
+    <insert id="insertEmployee" parameterType="Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into zh_employee(name,department,number) values (#{name},#{department},#{number})
+    </insert>
+    
+    <update id="updateEmployee" parameterType="Employee">
+        UPDATE zh_employee e SET e.name=#{name},e.department=#{department},e.number=#{number} where e.id=#{id}
+    </update>
+</mapper>
