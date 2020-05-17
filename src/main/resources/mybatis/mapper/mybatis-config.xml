@@ -13,7 +13,7 @@
 		<typeAlias alias="Employee" type="boot.domain.Employee" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="UserMapper.xml" />
-		<mapper resource="EmployeeMapper.xml" />
+		<mapper resource="mybatis/mapper/UserMapper.xml" />
+		<mapper resource="mybatis/mapper/EmployeeMapper.xml" />
 	</mappers>
 </configuration>

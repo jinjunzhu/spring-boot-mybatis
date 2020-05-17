@@ -33,7 +33,7 @@ public class MybatisConfig1 {
             throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mapper1/mybatis-config.xml"));
+        bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mapper1/mybatis-config1.xml"));
         return bean.getObject();
     }
 

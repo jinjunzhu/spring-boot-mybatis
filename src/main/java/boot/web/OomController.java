@@ -1,31 +1,53 @@
 package boot.web;
 
+import boot.DeadLock;
 import boot.oom.ArraySizeExceeds;
-import org.springframework.stereotype.Controller;
+import boot.oom.CreateNativeThreads;
+import boot.oom.GcOverrhead;
+import boot.oom.HeapSize;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/oom")
 public class OomController {
 
     @RequestMapping("/arraySizeExceeds")
-    public void arraySizeExceeds(){
+    public String arraySizeExceeds(){
         ArraySizeExceeds.test();
+        return "Sucess!";
     }
 
     @RequestMapping("/createNativeThreads")
-    public void createNativeThreads(){
-        ArraySizeExceeds.test();
+    public String createNativeThreads(){
+        System.out.println("createNativeThreads test");
+        CreateNativeThreads.test();
+        return "Sucess!";
+    }
+
+    @RequestMapping("/createNativeThreads1")
+    public String createNativeThreads1(){
+        System.out.println("createNativeThreads test1");
+        CreateNativeThreads.test1();
+        return "Sucess!";
     }
 
     @RequestMapping("/gcOverrhead")
-    public void gcOverrhead(){
-        ArraySizeExceeds.test();
+    public String gcOverrhead(){
+        GcOverrhead.test();
+        return "Sucess!";
     }
 
     @RequestMapping("/heapSize")
-    public void heapSize(){
-        ArraySizeExceeds.test();
+    public String heapSize(){
+        HeapSize.test();
+        return "Sucess!";
+    }
+
+    @RequestMapping("/deadLock")
+    public String deadLock(){
+        DeadLock.test();
+        return "Sucess!";
     }
 
 }

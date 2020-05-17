@@ -12,6 +12,6 @@
 		<typeAlias alias="Department" type="boot.domain.Department" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="DepartmentMapper.xml" />
+		<mapper resource="mybatis/mapper1/DepartmentMapper.xml" />
 	</mappers>
 </configuration>
