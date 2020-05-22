@@ -20,16 +20,16 @@ public class EmployeeServiceTest extends AbstractSpringbootTest {
 
 	@Test
 	public void testInsertEmployee(){
-		Employee employee = employeeService.getEmployee("lisi");
+		Employee employee = employeeService.getEmployee("wangwu");
 		Assert.assertNull(employee);
 		
 		Employee employee1 = new Employee();
-		employee1.setName("lisi");
+		employee1.setName("wangwu");
 		employee1.setDepartment("4");
 		employee1.setNumber(2002950l);
 		employeeService.insertEmployee(employee1);
 		
-		employee = employeeService.getEmployee("lisi");
+		employee = employeeService.getEmployee("wangwu");
 		Assert.assertNotNull(employee);
 		
 	}
