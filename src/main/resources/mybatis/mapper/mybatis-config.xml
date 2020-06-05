@@ -3,17 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
 	<settings>
 		<setting name="cacheEnabled" value="false" />
 		<setting name="logImpl" value="SLF4J" />
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
+
 	<typeAliases>
 		<typeAlias alias="User" type="boot.domain.User" />
 		<typeAlias alias="Employee" type="boot.domain.Employee" />
 	</typeAliases>
+
+	<plugins>
+		<plugin interceptor="boot.mybatis.plugin.LimitInterceptor"></plugin>
+		<plugin interceptor="boot.mybatis.plugin.ExistInterceptor"></plugin>
+	</plugins>
+
 	<mappers>
 		<mapper resource="mybatis/mapper/UserMapper.xml" />
 		<mapper resource="mybatis/mapper/EmployeeMapper.xml" />
 	</mappers>
+
+
 </configuration>

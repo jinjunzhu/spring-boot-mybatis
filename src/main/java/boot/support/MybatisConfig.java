@@ -9,6 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,7 @@ import java.math.BigDecimal;
  * @author jinjunzhu
  * @date 2018/07/18
  */
+@Scope
 @Component("mybatisConfig")
 @MapperScan(basePackages={"boot.repository.dao1"}, sqlSessionFactoryRef = "firstSqlSessionFactory")
 public class MybatisConfig {
