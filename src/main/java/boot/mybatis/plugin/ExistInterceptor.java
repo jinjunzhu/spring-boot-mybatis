@@ -24,7 +24,7 @@ public class ExistInterceptor extends AbstractInterceptor {
         logger.info("原始sql语句:"+oldsql);
 
         // 加入exist语句
-        BoundSql newBoundSql = new BoundSql(mappedStatement.getConfiguration(), oldsql + " AND EXISTS (SELECT * FROM zh_user r WHERE e.name=r.username)",
+        BoundSql newBoundSql = new BoundSql(mappedStatement.getConfiguration(), oldsql + " AND EXISTS (SELECT * FROM zh_user e WHERE e.name=r.username)",
                 boundSql.getParameterMappings(), boundSql.getParameterObject());
         MappedStatement newMs = copyFromMappedStatement(mappedStatement, new BoundSqlSqlSource(newBoundSql));
         invocation.getArgs()[0] = newMs;
