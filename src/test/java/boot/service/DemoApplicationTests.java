@@ -22,7 +22,7 @@ public class DemoApplicationTests extends AbstractSpringbootTest {
         String beginDate="20200701";
         String endDate="20210701";
         BigDecimal rate = BigDecimal.valueOf(0.0005);//利率
-        BigDecimal dResNor = BigDecimal.valueOf(1000);//放款金额
+        BigDecimal dResNor = BigDecimal.valueOf(10000);//放款金额
         SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
         String payDate="1";
         int loanTerm = calTest.fnCalLoanTerm(beginDate,endDate,forwProvDate,payDate,"1");
