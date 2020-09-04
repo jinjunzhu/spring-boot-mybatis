@@ -14,6 +14,8 @@ public class RedisTest extends AbstractSpringbootTest {
 
     @Test
     public void testGet(){
-        Assert.assertEquals(redisTemplate.opsForValue().get("zhujinjun"), "123456");
+        //Assert.assertEquals(redisTemplate.opsForValue().get("zhujinjun"), "123456");
+        redisTemplate.opsForValue().set("foo", "12345678");
+        System.out.println(redisTemplate.opsForValue().get("foo"));
     }
 }
